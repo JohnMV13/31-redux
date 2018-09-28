@@ -26,7 +26,7 @@ Your lab directory must include
 * **.eslintignore** -- with the class .eslintignore
 * **yarn.lock** -- with the yarn lockfile
 * **package.json** -- with all dependencies and dev-dependencies
-* **webpack.config.js** -- with webpack config
+* **.config.js** -- with  config
 * **src/** -- containing the frontend code
 * **src/main.js** -- for appending your app to the DOM
 * **src/action/** -- containing your action creators
