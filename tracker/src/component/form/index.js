@@ -5,12 +5,16 @@ export default class Form extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     let business={};
+    if(this.props.currentBusiness){
+      business._id = this.props.currentBusiness._id;
+    }
     business.name=event.target.name.value;
     business.established=event.target.established.value;
     this.props.handleComplete(business);
   }
 
   render(){
+    let buttonText = this.props.currentBusiness ? 'update' : 'submit';
     return(
       <React.Fragment>
         <form onSubmit={this.handleSubmit}>

@@ -14,3 +14,10 @@ export const deleteBusiness = (business) => {
     payload: business,
   }
 }
+
+export const updateBusiness = (business) => {
+  return{
+    type: 'BUSINESS_UPDATE',
+    payload: business,
+  }
+}

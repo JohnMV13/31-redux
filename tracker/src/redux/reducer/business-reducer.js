@@ -3,7 +3,9 @@ export default (state = [], action = {}) => {
     case 'BUSINESS_CREATE':
       return [ ...state, action.payload ];
     case 'BUSINESS_DELETE':
-      return state.filter(business => business._id !== action.payload._id)
+      return state.filter(business => business._id !== action.payload._id);
+    case 'BUSINESS_UPDATE':
+      return state.map(business=> business._id === action.payload._id ? action.payload : business);
     default:
       return state;
   }

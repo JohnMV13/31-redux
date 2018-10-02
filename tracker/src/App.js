@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import createAppStore from './redux/lib/store';
+import createBusiness from './redux/lib/store';
 import Dashboard from './component/dashboard/index';
 
-const store = createAppStore();
+const store = createBusiness();
 
 class App extends Component {
   componentDidMount() {

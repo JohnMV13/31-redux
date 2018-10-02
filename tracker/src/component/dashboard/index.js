@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Form from '../form/index';
 import Item from '../item/index';
 
-import * as actions from '../../redux/action/business-action';
+import * as company from '../../redux/action/business-action';
 
 class DashboardContainer extends Component {
   handleAdd = (business) => {
@@ -16,7 +16,12 @@ class DashboardContainer extends Component {
         <h2>Dashboard</h2>
         <Form handleComplete={this.handleAdd}/>
         {this.props.business.map(business => (
-          <Item key={business._id} business={business} handleDelete={this.props.deleteBusiness}/>
+          <Item 
+            key={business._id} 
+            business={business} 
+            handleDelete={this.props.deleteBusiness}
+            handleComplete={this.handleUpdate}
+          />
         ))}
       </React.Fragment>
     );
@@ -25,13 +30,14 @@ class DashboardContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    business: state, //.business,
+    business: state,
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  createBusiness: (business) => dispatch(actions.createBusiness(business)),
-  deleteBusiness: (business) => dispatch(actions.deleteBusiness(business)),
+  createBusiness: (business) => dispatch(company.createBusiness(business)),
+  deleteBusiness: (business) => dispatch(company.deleteBusiness(business)),
+  updateBusiness: (business) => dispatch(company.updateBusiness(business)),
 })
 
 const connector = connect(mapStateToProps,mapDispatchToProps);
