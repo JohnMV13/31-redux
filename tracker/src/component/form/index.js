@@ -13,21 +13,24 @@ export default class BusinessForm extends Component {
     this.props.handleComplete(business);
   }
 
+  componentDidUpdate() {
+    console.log(this.props);
+  }
+
   render(){
     return(
-      this.props.currentBusiness ?
-      // <React.Fragment>
+      <React.Fragment>
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="name" placeholder="Name"></input>
           <input type="text" name="established" placeholder="Established"></input>
           <input type="submit"></input>
-        </form> :
-        <form onSubmit={this.handleSubmit}>
-          <input type='text' name='title' placeholder='title'></input>
-          <input type='text' name='description' placeholder='description'></input>
-          <input type='submit' value='submit'></input>
         </form>
-      // </React.Fragment>
+      </React.Fragment>
+        // <form onSubmit={this.handleSubmit}>
+        //   <input type='text' name='title' placeholder='title'></input>
+        //   <input type='text' name='description' placeholder='description'></input>
+        //   <input type='submit' value='submit'></input>
+        // </form>
     )
   }
 }

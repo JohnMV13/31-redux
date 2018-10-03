@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Form from '../form/index';
 import GameForm from '../form/game-form';
 import GameItem from './game-item';
 
 import * as gameActions from '../../redux/action/game-actions';
 
-class BusinessItem extends Component {
+class BusinessItemContainer extends Component {
   deleteObject = () => {
     this.props.handleDelete(this.props.business);
   }
@@ -48,4 +49,4 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 const connector = connect(mapStateToProps,mapDispatchToProps);
-export default connector(PlaylistItemContainer);
+export default connector(BusinessItemContainer);

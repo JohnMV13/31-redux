@@ -8,12 +8,14 @@ import * as actions from '../../redux/action/business-action';
 class DashboardContainer extends Component {
   handleAdd = (business) => {
     this.props.createBusiness(business);
+    console.log(this.props);
   }
   handleUpdate = (business) => {
     this.props.updateBusiness(business);
   }
 
   render(){
+    console.log(this.props);
     return(
       <React.Fragment>
         <h2>Dashboard</h2>
@@ -33,7 +35,7 @@ class DashboardContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    business: state.business,
+    business: state,
   }
 }
 
