@@ -1,3 +1,13 @@
-.App-header {
-  background: aliceblue;
+main {
+  padding: 5%;
+}
+
+form {
+  background-color: blue;
+}
+
+@media (min-width: 760px) {
+  body{
+    background-color: red;
+  }
 }

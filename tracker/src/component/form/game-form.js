@@ -29,7 +29,7 @@ export default class GameForm extends Component {
         </form>
       </div>:
       <div>
-        <h3>Add a song!</h3>
+        <h3>Add a Game!</h3>
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="name" placeholder="game name"/>
           <input type="text" name="units" placeholder="units"/>

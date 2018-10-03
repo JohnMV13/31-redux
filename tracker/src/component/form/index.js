@@ -26,11 +26,6 @@ export default class BusinessForm extends Component {
           <input type="submit"></input>
         </form>
       </React.Fragment>
-        // <form onSubmit={this.handleSubmit}>
-        //   <input type='text' name='title' placeholder='title'></input>
-        //   <input type='text' name='description' placeholder='description'></input>
-        //   <input type='submit' value='submit'></input>
-        // </form>
     )
   }
 }
