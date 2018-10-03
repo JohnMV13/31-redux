@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Form extends Component {
+export default class BusinessForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -14,15 +14,20 @@ export default class Form extends Component {
   }
 
   render(){
-    let buttonText = this.props.currentBusiness ? 'update' : 'submit';
     return(
-      <React.Fragment>
+      this.props.currentBusiness ?
+      // <React.Fragment>
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="name" placeholder="Name"></input>
           <input type="text" name="established" placeholder="Established"></input>
           <input type="submit"></input>
+        </form> :
+        <form onSubmit={this.handleSubmit}>
+          <input type='text' name='title' placeholder='title'></input>
+          <input type='text' name='description' placeholder='description'></input>
+          <input type='submit' value='submit'></input>
         </form>
-      </React.Fragment>
+      // </React.Fragment>
     )
   }
 }
