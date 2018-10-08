@@ -15,7 +15,7 @@ class BusinessItemContainer extends Component {
     console.log(this.props);
     return(
       <React.Fragment>
-        <div>{this.props.business.name} {this.props.business.established}</div>
+        <div className="business">{this.props.business.name} {this.props.business.established}</div>
         <Form handleComplete={this.props.handleComplete} currentBusiness={this.props.business}/>
         <button onClick={this.deleteObject}>Delete</button>
         <GameForm handleComplete={this.props.createGame} 

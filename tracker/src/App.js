@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import './styles/App.scss';
 
 import createBusiness from './redux/lib/store';
 import Dashboard from './component/dashboard/index';
@@ -22,11 +23,16 @@ class App extends Component {
               <h1 className="App-title">Game Business Inventory</h1>
               <nav>
                 <ul>
-                  <li><Link to="/">Dashboard</Link></li>
+                  <li><Link to="/" className="Link">Dashboard</Link></li>
                 </ul>
               </nav>
             </header>
-            <Route exact path="/" component={Dashboard}/>
+            <main>
+              <Route exact path="/" component={Dashboard}/>
+            </main>
+            <footer>
+              &copy; John Miester 2018
+            </footer>
           </div>
         </BrowserRouter>  
       </Provider>

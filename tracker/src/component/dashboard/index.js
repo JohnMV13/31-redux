@@ -25,7 +25,7 @@ class DashboardContainer extends Component {
     console.log(this.props);
     return(
       <React.Fragment>
-        <h2>Dashboard</h2>
+        <h2>Create Business</h2>
         <Form handleComplete={this.handleAdd}/>
         {this.props.business.map(business => (
           <Item 
