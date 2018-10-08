@@ -41,7 +41,7 @@ class DashboardContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    business: state,
+    business: state.businesses,
   }
 }
 
