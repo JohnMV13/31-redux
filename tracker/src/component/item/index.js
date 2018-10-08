@@ -21,7 +21,7 @@ class BusinessItemContainer extends Component {
         <GameForm handleComplete={this.props.createGame} 
           business_id={this.props.business._id}
         />
-        {this.props.game
+        {this.props.games
           .filter(game => game.business === this.props.business._id)
           .map(game => 
             <GameItem
@@ -38,7 +38,7 @@ class BusinessItemContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    game: state.game,
+    games: state.games,
   }
 }
 

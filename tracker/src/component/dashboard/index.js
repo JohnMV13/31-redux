@@ -4,7 +4,6 @@ import Form from '../form/index';
 import Item from '../item/index';
 
 import * as actions from '../../redux/action/business-action';
-import * as action from '../../redux/action/game-actions';
 
 class DashboardContainer extends Component {
   handleAdd = (business) => {
@@ -42,7 +41,7 @@ class DashboardContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    business: state,
+    business: state.businesses,
   }
 }
 
