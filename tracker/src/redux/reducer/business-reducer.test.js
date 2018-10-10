@@ -24,16 +24,16 @@ describe('business-reducer', ()=> {
     });
   });
   describe('BUSINESS_DELETE', () => {
-    it('removes a genre with matching id, leaving an empty state', () => {
+    it('removes a business with matching id, leaving an empty state', () => {
       let state = [{ _id:1, name:'John'}];
-      let action = deleteGenre({ _id:1, name:'John'});
+      let action = deleteBusiness({ _id:1, name:'John'});
       let result = reducer(state,action);
       expect(state).toBe(state);
       expect(result).toEqual([]);
     });
     it('removes a business from a list of businesses', () => {
       let state = [{ _id:1, name:'John'},{ _id:2, name:'David'}];
-      let action = deleteGenre({ _id:1, name: 'John'});
+      let action = deleteBusiness({ _id:1, name: 'John'});
       let result = reducer(state,action);
       expect(result.length).toBe(1);
       expect(result[0]._id).toBe(2);

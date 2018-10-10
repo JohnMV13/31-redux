@@ -15,22 +15,28 @@ class BusinessItemContainer extends Component {
     console.log(this.props);
     return(
       <React.Fragment>
-        <div className="business">{this.props.business.name} {this.props.business.established}</div>
-        <Form handleComplete={this.props.handleComplete} currentBusiness={this.props.business}/>
-        <button onClick={this.deleteObject}>Delete</button>
-        <GameForm handleComplete={this.props.createGame} 
-          business_id={this.props.business._id}
-        />
-        {this.props.game
-          .filter(game => game.business === this.props.business._id)
-          .map(game => 
-            <GameItem
-              key={game._id}
-              game={game}
-              handleDelete={this.props.deleteGame}
-              handleComplete={this.props.updateGame}
-            />
-        )}
+        <div  className="business">
+          <div>{this.props.business.name} {this.props.business.established}</div>
+          <div className="hidden">
+            <Form handleComplete={this.props.handleComplete} currentBusiness={this.props.business}/>
+            <button onClick={this.deleteObject}>Delete</button> 
+          </div>
+          <GameForm handleComplete={this.props.createGame} 
+            business_id={this.props.business._id}
+          />
+          {/* <div className="hiddenGame"> */}
+            {this.props.games
+              .filter(game => game.business === this.props.business._id)
+              .map(game => 
+                <GameItem
+                  key={game._id}
+                  game={game}
+                  handleDelete={this.props.deleteGame}
+                  handleComplete={this.props.updateGame}
+                />
+            )}
+          {/* </div> */}
+        </div>
       </React.Fragment>
     )
   }
@@ -38,7 +44,7 @@ class BusinessItemContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    game: state.game,
+    games: state.games,
   }
 }
 

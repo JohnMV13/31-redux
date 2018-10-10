@@ -1,11 +1,13 @@
 html {
   height: 100%;
+  margin: 0%;
+  padding: 0%;
 }
 
 header {
   box-sizing: border-box;
   text-align: center;
-  background-color: #1A1D1E;
+  background-color: #1A1D1E30;
   color: #FFFC31;
 }
 
@@ -21,32 +23,40 @@ li{
   color: #FFFC31;
 }
 
-
-main {
-  // margin: 5%;
+.hidden {
+  background-color: black;
 }
 
-form {
-  box-sizing: border-box;
-  padding: 2%;
+.GameItem {
+  background-color: black;
+}
+
+main {
+  margin: 5%;
 }
 
 .business{
   float: right;
+  box-sizing: border-box;
+  margin: 5%;
 }
 
 footer {
+  box-sizing: border-box;
   text-align: center;
   position: fixed;
+  height: 5vh;
   bottom: 0%;
-  width: 100%;
+  width: 100vw;
+  background-color: #1A1D1E30;
 }
 
-@media (min-width: 760px) {
+@media (min-width: 768px) {
   body{
     color: #FFFC31;
     height: 100%;
     background-repeat: no-repeat;
-    background-image: radial-gradient( /*#F9F9F9,*/ #C91212, #332744);
+    background-image: radial-gradient( #F9F9F9, rgb(238, 141, 141), rgb(233, 120, 120), rgb(201, 67, 67), #C91212, #3d051b, #332744);
+    margin: 0%;
   }
 }
