@@ -24,7 +24,7 @@ class BusinessItemContainer extends Component {
           <GameForm handleComplete={this.props.createGame} 
             business_id={this.props.business._id}
           />
-          {/* <div className="hiddenGame"> */}
+          <div className="hiddenGame">
             {this.props.games
               .filter(game => game.business === this.props.business._id)
               .map(game => 
@@ -35,7 +35,7 @@ class BusinessItemContainer extends Component {
                   handleComplete={this.props.updateGame}
                 />
             )}
-          {/* </div> */}
+          </div>
         </div>
       </React.Fragment>
     )

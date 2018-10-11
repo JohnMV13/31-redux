@@ -21,10 +21,9 @@ export default class GameForm extends Component {
     return(
       this.props.game?
       <div>
-        <div>{this.props.game.business}</div>
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="name" defaultValue={this.props.game.name}/>
-          <input type="text" name="units" defaultValue={this.props.game.units}/>
+          <input type="number" name="units" defaultValue={this.props.game.units}/>
           <input type="submit"></input>
         </form>
       </div>:
