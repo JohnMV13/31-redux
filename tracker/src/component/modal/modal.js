@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './modal.css';
 
 export default class Modal extends Component {
   render() {
@@ -7,7 +8,7 @@ export default class Modal extends Component {
     return (
       <div className={modalName}>
         <main className='modal'>
-          <button onClick={this.props.handleClose} className='close'></button>
+          <button onClick={this.props.handleClose} className='close'>X</button>
 
           {this.props.title &&
             <h2>{this.props.title}</h2>}
