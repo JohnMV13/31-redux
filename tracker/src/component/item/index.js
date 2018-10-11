@@ -36,8 +36,9 @@ class BusinessItemContainer extends Component {
       <React.Fragment>
         <div  className="business">
           <div>{this.props.business.name} {this.props.business.established}</div>
+          <button onClick={this.showModal}>Edit</button>
           {/* <div className="hidden"> */}
-            <Modal title='edit' show={this.state.showModal} handleClose={this.state.hideModal}>
+            <Modal title='edit' show={this.state.showEdit} handleClose={this.hideModal}>
               <Form handleComplete={this.props.handleComplete} currentBusiness={this.props.business}/>
               <button onClick={this.deleteObject}>Delete</button>
             </Modal>  
