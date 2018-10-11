@@ -3,12 +3,31 @@ import { connect } from 'react-redux';
 import Form from '../form/index';
 import GameForm from '../form/game-form';
 import GameItem from './game-item';
+import Modal from '../modal/modal';
 
 import * as gameActions from '../../redux/action/game-actions';
 
 class BusinessItemContainer extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { showEdit: false };
+  }
+
   deleteObject = () => {
     this.props.handleDelete(this.props.business);
+  }
+
+  showModal = () => {
+    this.setState({
+      showEdit: true,
+    })
+  }
+
+  hideModal = () => {
+    this.setState({
+      showEdit: false,
+    })
   }
 
   render(){
@@ -17,10 +36,12 @@ class BusinessItemContainer extends Component {
       <React.Fragment>
         <div  className="business">
           <div>{this.props.business.name} {this.props.business.established}</div>
-          <div className="hidden">
-            <Form handleComplete={this.props.handleComplete} currentBusiness={this.props.business}/>
-            <button onClick={this.deleteObject}>Delete</button> 
-          </div>
+          {/* <div className="hidden"> */}
+            <Modal title='edit' show={this.state.showModal} handleClose={this.state.hideModal}>
+              <Form handleComplete={this.props.handleComplete} currentBusiness={this.props.business}/>
+              <button onClick={this.deleteObject}>Delete</button>
+            </Modal>  
+          {/* </div> */}
           <GameForm handleComplete={this.props.createGame} 
             business_id={this.props.business._id}
           />
