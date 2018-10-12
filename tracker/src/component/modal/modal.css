@@ -1,7 +1,32 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.3);
+  height: 100%;
+  width: 100%;
+  color: rgb(255, 0, 0);
+}
+
+.modal main {
+  position: fixed;
+  top: 38%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  /* background-color: rgb(82, 7, 112, .8); */
+  background-color: #39393A80;
+}
+
 .display-none {
   display: none;
 }
 
 .display-block {
   display: block;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    background-color: rgba(0,0,0,.9);
+  }
 }

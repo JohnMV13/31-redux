@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 
+const defaultState = {
+  game: '',
+  units: 0,
+}
+
 export default class GameForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     let game = {}
     if(this.props.game){
-      console.log(this.props.game._id);
       game._id = this.props.game._id;
       game.business = this.props.game.business;
+    }
+    if(!this.props.game){
+      this.setState(defaultState);
     }
     else{
       game.business = this.props.business_id;
@@ -17,13 +24,22 @@ export default class GameForm extends Component {
    
     this.props.handleComplete(game);
   }
+
+  handleChange = (event) => {
+    let { name, value, type } = event.target;
+
+    this.setState({
+      [name]: type = 'text' ? value : +value,
+    });
+  }
+
   render(){
     return(
       this.props.game?
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="name" defaultValue={this.props.game.name}/>
-          <input type="number" name="units" defaultValue={this.props.game.units}/>
+          <input type="text" name="game" placeholder = "Game" value={this.props.game.name} onChange={this.handleChange}/>
+          <input type="number" name="units" placeholder = "units sold" value={this.props.game.units} onChange={this.handleChange}/>
           <input type="submit"></input>
         </form>
       </div>:
@@ -31,7 +47,7 @@ export default class GameForm extends Component {
         <h3>Add a Game!</h3>
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="name" placeholder="game name"/>
-          <input type="text" name="units" placeholder="units"/>
+          <input type="number" name="units" placeholder="units"/>
           <input type="submit"></input>
         </form>
       </div>

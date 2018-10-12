@@ -35,16 +35,17 @@ class BusinessItemContainer extends Component {
     return(
       <React.Fragment>
         <div  className="business">
-          <div>{this.props.business.name} {this.props.business.established}</div>
-          <button onClick={this.showModal}>Edit</button>
+          <div>
+            {this.props.business.name} {this.props.business.established}
+            <button className='edit' onClick={this.showModal}>Edit</button>
+          </div>
             <Modal title='edit' show={this.state.showEdit} handleClose={this.hideModal}>
               <Form handleComplete={this.props.handleComplete} currentBusiness={this.props.business}/>
-              <button onClick={this.deleteObject}>Delete</button>
+              <button className='delete' onClick={this.deleteObject}>Delete</button>
             </Modal>
           <GameForm handleComplete={this.props.createGame} 
             business_id={this.props.business._id}
           />
-          <div className="hiddenGame">
             {this.props.games
               .filter(game => game.business === this.props.business._id)
               .map(game => 
@@ -55,7 +56,6 @@ class BusinessItemContainer extends Component {
                   handleComplete={this.props.updateGame}
                 />
             )}
-          </div>
         </div>
       </React.Fragment>
     )
