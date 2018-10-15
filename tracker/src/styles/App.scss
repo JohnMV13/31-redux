@@ -50,8 +50,11 @@ main {
 
 .business{
   float: right;
-  box-sizing: border-box;
+  block-size: border-box;
+  border-radius: 60%;
   padding: 5%;
+  border: solid 5px rgba(182, 168, 168, .05);
+  background-color: rgba(204, 198, 198, .05);
 }
 
 footer {
@@ -66,7 +69,14 @@ footer {
 
 @media (max-width: 768px) {
   .business {
+    margin: .3%;
     float: left;
     padding: 3%;
+  }
+}
+
+@media (max-width: 400px) {
+  .business {
+    margin: 3%;
   }
 }

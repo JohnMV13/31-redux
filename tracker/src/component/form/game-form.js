@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 
 const defaultState = {
-  game: '',
+  name: '',
   units: 0,
 }
 
 export default class GameForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = props.game || defaultState;
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
     let game = {}
@@ -13,16 +19,15 @@ export default class GameForm extends Component {
       game._id = this.props.game._id;
       game.business = this.props.game.business;
     }
-    if(!this.props.game){
-      this.setState(defaultState);
-    }
     else{
       game.business = this.props.business_id;
     }
     game.name = event.target.name.value;
     game.units = event.target.units.value;
-   
     this.props.handleComplete(game);
+    if(!this.props.game){
+      this.setState(defaultState);
+    }
   }
 
   handleChange = (event) => {
@@ -35,19 +40,21 @@ export default class GameForm extends Component {
 
   render(){
     return(
-      this.props.game?
+      this.props.game
+      ?
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="game" placeholder = "Game" value={this.props.game.name} onChange={this.handleChange}/>
-          <input type="number" name="units" placeholder = "units sold" value={this.props.game.units} onChange={this.handleChange}/>
+          <input type="text" name="game" placeholder = "Game" defaultValue={this.props.game.name} />
+          <input type="number" name="units" placeholder = "units sold" defaultValue={this.props.game.units} />
           <input type="submit"></input>
         </form>
-      </div>:
+      </div>
+      :
       <div>
         <h3>Add a Game!</h3>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="name" placeholder="game name"/>
-          <input type="number" name="units" placeholder="units"/>
+          <input type="text" name="name" placeholder="Game" value={this.state.name} onChange={this.handleChange}/>
+          <input type="number" name="units" placeholder="Units" value={this.state.units} onChange={this.handleChange}/> 
           <input type="submit"></input>
         </form>
       </div>
